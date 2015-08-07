@@ -1,21 +1,19 @@
 import { text, html, matchRemoveList } from 'commonmark-helpers';
-import { is, map } from 'ramda';
+import { is } from 'ramda';
 
-const getMatcher = item => {
-  if (is(Function, item)) {
-    return item;
-  }
+const wrap = item =>
+  (is(String, item) || is(RegExp, item))
+    ? node => text(node).match(item)
+    : item;
 
-  if (is(RegExp, item)) {
-    return node => text(node).match(item);
-  }
+const getMatchers = removeList => removeList.map(wrap).filter(is(Function));
+
+export default (input, removeList = []) => {
+  const node = matchRemoveList(input, ...getMatchers(removeList));
+  if (!node) return;
+  return {
+    text: text(node),
+    html: html(node),
+    node
+  };
 };
-
-const result = node => ({
-  text: text(node),
-  html: html(node),
-  node
-});
-
-export default (removeList, input) =>
-  result(matchRemoveList(input, ...map(getMatcher, removeList)));

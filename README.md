@@ -14,28 +14,48 @@
 ## Usage
 
 ```js
-import getMdContent from 'get-md-content';
+import getContent from 'get-md-content';
+import { isHeader } from 'commonmark-helpers'; // optional
 
-getMdContent('unicorns'); // unicorns
+const simple = `
+# header
+
+content`
+
+// simple get content without header
+getContent(simple, ['header']).text); // content
+getContent(simple, [/header/]).text); // content
+getContent(simple, [isHeader]).text); // content
+
+const basic = `
+# header
+
+20 December 2012
+
+content
+
+with two paragraphs`;
+
+// basic get content without header and date
+getContent(basic, [/header/, /december/gim]).text;
+    // content\n\nwith two paragraphs
 ```
 
 ## API
 
-### getMdContent(input, [options])
+### getContent(input, removeList)
 
 #### input
 
 *Required*  
 Type: `String`
 
-Lorem ipsum.
+Markdown string.
 
-#### options
+#### removeList
 
-##### foo
-
-Type: `Boolean`  
-Default: `false`
+Type: `Array` of `Function || RegExp || String`  
+Default: `[]`
 
 Lorem ipsum.
 

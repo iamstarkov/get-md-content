@@ -2,35 +2,34 @@ import { equal } from 'assert';
 import { isHeader } from 'commonmark-helpers';
 import getContent from './index';
 
-// что такое контент?
-// это статья без нодs заголовка и ноды c датой
-
 const simple = `
-# h1
+# header
+
+content`;
+
+it('should getContent with String', () =>
+  equal(getContent(simple, ['header']).text, 'content'));
+
+it('should getContent with RexExp', () =>
+  equal(getContent(simple, [/header/]).text, 'content'));
+
+it('should getContent with commonmark Matcher', () =>
+  equal(getContent(simple, [isHeader]).text, 'content'));
+
+const basic = `
+# header
+
+20 December 2012
 
 content
-`.trim();
 
-const medium = `
-# h1
+with two paragraphs`;
 
-## h2
+it('should getContent combo list', () =>
+  equal(getContent(basic, [isHeader, /december/gim]).text, 'content\n\nwith two paragraphs'));
 
-content
-`.trim();
+it('should getContent empty list', () =>
+  equal(getContent('content').text, 'content'));
 
-it('should simple getContent matcher', () => {
-  equal(getContent([isHeader], simple).text, 'content');
-});
-
-it('should simple getContent RexExp', () => {
-  equal(getContent([/h1/], simple).text, 'content');
-});
-
-it('should simple getContent full list', () => {
-  equal(getContent([/h1/, /h2/], medium).text, 'content');
-});
-
-it('should simple getContent empty list', () => {
-  equal(getContent([], `content`).text, 'content');
-});
+it('should simple getContent empty list', () =>
+  equal(getContent('').text, ''));
