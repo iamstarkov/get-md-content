@@ -16,8 +16,7 @@
 ```js
 import getContent from 'get-md-content';
 
-// small helper function
-const isHeader = node => node.type === 'Header';
+const isHeader = node => node.type === 'Header'; // small helper function
 
 const simple = `
 # header
