@@ -31,5 +31,5 @@ it('should getContent combo list', () =>
 it('should getContent empty list', () =>
   equal(getContent('content').text, 'content'));
 
-it('should simple getContent empty list', () =>
+it('should getContent with empty content', () =>
   equal(getContent('').text, ''));

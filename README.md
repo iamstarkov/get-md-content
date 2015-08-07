@@ -15,7 +15,9 @@
 
 ```js
 import getContent from 'get-md-content';
-import { isHeader } from 'commonmark-helpers'; // optional
+
+// small helper function
+const isHeader = node => node.type === 'Header';
 
 const simple = `
 # header

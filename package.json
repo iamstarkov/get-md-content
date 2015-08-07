@@ -36,5 +36,9 @@
     "assert": "*",
     "isparta": "*",
     "mocha": "*"
+  },
+  "dependencies": {
+    "commonmark-helpers": "^0.4.0",
+    "ramda": "^0.17.1"
   }
 }
