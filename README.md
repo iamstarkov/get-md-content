@@ -38,8 +38,7 @@ content
 with two paragraphs`;
 
 // basic get content without header and date
-getContent(basic, [/header/, /december/gim]).text;
-    // content\n\nwith two paragraphs
+getContent(basic, [/header/, /december/gim]).text; // content\n\nwith two paragraphs
 ```
 
 ## API
@@ -58,7 +57,9 @@ Markdown string.
 Type: `Array` of `Function || RegExp || String`  
 Default: `[]`
 
-Lorem ipsum.
+Matched nodes will be removed.  
+`String` or `RegExp` will be matched against plaintext markdown nodes.  
+`Function` takes commonmark `node` as a first param, and ast iteration `event` as a second param. Check out [commonmark-helpers shortcuts](https://www.npmjs.com/package/commonmark-helpers#bunch-of-shortcut-helpers) and [commonmark api](https://github.com/jgm/commonmark.js#usage)
 
 ## License
 

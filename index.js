@@ -6,10 +6,8 @@ const wrap = item =>
     ? node => text(node).match(item)
     : item;
 
-const getMatchers = removeList => removeList.map(wrap).filter(is(Function));
-
 export default (input, removeList = []) => {
-  const node = matchRemoveList(input, ...getMatchers(removeList));
+  const node = matchRemoveList(input, ...removeList.map(wrap).filter(is(Function)));
   if (!node) return;
   return {
     text: text(node),
