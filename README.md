@@ -61,6 +61,13 @@ Matched nodes will be removed.
 `String` or `RegExp` will be matched against plaintext markdown nodes.  
 `Function` takes commonmark `node` as a first param, and ast iteration `event` as a second param. Check out [commonmark-helpers shortcuts](https://www.npmjs.com/package/commonmark-helpers#bunch-of-shortcut-helpers) and [commonmark api](https://github.com/jgm/commonmark.js#usage)
 
+## Related
+
+* [get-md-date][get-md-date] - get date from markdown article
+* [get-md-desc][get-md-desc] - get description from markdown article
+* [get-md-image][get-md-image] - get image from markdown article
+* [get-md-title][get-md-title] - get title from markdown article
+
 ## License
 
 MIT © [Vladimir Starkov](https://iamstarkov.com)
@@ -76,3 +83,8 @@ MIT © [Vladimir Starkov](https://iamstarkov.com)
 
 [depstat-url]: https://david-dm.org/iamstarkov/get-md-content
 [depstat-image]: https://david-dm.org/iamstarkov/get-md-content.svg?style=flat-square
+
+[get-md-date]: https://github.com/iamstarkov/get-md-date
+[get-md-desc]: https://github.com/iamstarkov/get-md-desc
+[get-md-image]: https://github.com/iamstarkov/get-md-image
+[get-md-title]: https://github.com/iamstarkov/get-md-title
