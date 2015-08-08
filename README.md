@@ -21,7 +21,7 @@ const isHeader = node => node.type === 'Header'; // small helper function
 const simple = `
 # header
 
-content`
+content`;
 
 // simple get content without header
 getContent(simple, ['header']).text); // content
