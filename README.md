@@ -63,6 +63,7 @@ Matched nodes will be removed.
 
 ## Related
 
+* [article-data][article-data] - extract data from your markdown article
 * [get-md-date][get-md-date] - get date from markdown article
 * [get-md-desc][get-md-desc] - get description from markdown article
 * [get-md-image][get-md-image] - get image from markdown article
@@ -84,6 +85,7 @@ MIT © [Vladimir Starkov](https://iamstarkov.com)
 [depstat-url]: https://david-dm.org/iamstarkov/get-md-content
 [depstat-image]: https://david-dm.org/iamstarkov/get-md-content.svg?style=flat-square
 
+[article-data]: https://github.com/iamstarkov/article-data
 [get-md-date]: https://github.com/iamstarkov/get-md-date
 [get-md-desc]: https://github.com/iamstarkov/get-md-desc
 [get-md-image]: https://github.com/iamstarkov/get-md-image
